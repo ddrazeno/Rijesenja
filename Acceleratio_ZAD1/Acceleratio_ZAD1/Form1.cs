@@ -16,7 +16,7 @@ namespace Acceleratio_ZAD1
     {
         string putanja;
         string path;
-        string path2 = @"C:\Users\DOMAGOJ\Desktop\Riješenja\Acceleratio_ZAD1\Acceleratio_ZAD1\log.txt";
+        string path2 = NabaviPunoImePutanje("log.txt");
         string tekst;
         string odabir;
         public Form1()
@@ -71,6 +71,10 @@ namespace Acceleratio_ZAD1
                 tw.WriteLine(tekst + Environment.NewLine + odabir);
                 tw.Close();
             }
+            else
+            {
+                //izmijena teksta
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -85,6 +89,26 @@ namespace Acceleratio_ZAD1
                 textBox2.Text = File.ReadAllText(path2);
             }
             
+        }
+
+        public static string NabaviPunoImePutanje(string FileName)
+        {
+            string file = "";
+
+            
+            FileInfo f = new FileInfo(FileName);
+
+            if (FileName.StartsWith(".\\"))  
+                file = Application.StartupPath
+                             + FileName.Substring(1); 
+            else if (!FileName.Contains("\\")) 
+                file = Application.StartupPath
+                             + "\\"
+                             + FileName;
+            else
+                file = f.FullName; 
+
+            return file;
         }
     }
 }
