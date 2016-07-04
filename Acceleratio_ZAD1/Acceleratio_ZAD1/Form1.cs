@@ -12,102 +12,134 @@ using System.Windows.Forms;
 
 namespace Acceleratio_ZAD1
 {
-    public partial class Form1 : Form
+    public partial class Zadatak1 : Form
     {
-        string putanja;
-        string path;
+        Datoteka datoteka = new Datoteka();
         string path2 = NabaviPunoImePutanje("log.txt");
-        string tekst;
-        string odabir;
-        public Form1()
+        
+        public Zadatak1()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnOtvori_Click(object sender, EventArgs e)
         {
-            textBox2.Clear();
-            comboBox1.Items.Clear();
-            tekst = "";
-            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            txtPrikaz.Clear();
+            cmbFiles.Items.Clear();
+            datoteka.tekst = "";
 
-            DialogResult result = fbd.ShowDialog();
-            putanja = fbd.SelectedPath;
-            path = putanja + @"\log.txt";
+            FolderBrowserDialog browser = new FolderBrowserDialog();
+            DialogResult result = browser.ShowDialog();
+            datoteka.putanja = browser.SelectedPath;
+            datoteka.path = datoteka.putanja + @"\log.txt";
 
-            string[] files = Directory.GetFiles(putanja);
-            string[] dirs = Directory.GetDirectories(putanja);
+            try
+            {
+                datoteka.datoteke = Directory.GetFiles(datoteka.putanja);
+            }
+            catch (Exception)
+            {
+                
+            }
 
-            foreach (char c in putanja)
+            try
+            {
+                datoteka.direktoriji = Directory.GetDirectories(datoteka.putanja);
+            }
+            catch (Exception)
+            {
+                
+            }
+
+            foreach (char c in datoteka.putanja)
             {
                 if (Regex.IsMatch(c.ToString(), @"[""'\\]+") == true)
                 {
-                    textBox2.Text += Environment.NewLine + "   ";
-                    tekst += Environment.NewLine + "   ";
+                    datoteka.razmak += "   ";
+                    txtPrikaz.Text += Environment.NewLine + datoteka.razmak;
+                    datoteka.tekst += Environment.NewLine + "   " + datoteka.razmak;
                 }
                 else
                 {
-                    textBox2.Text += c;
-                    tekst += c;
+                    txtPrikaz.Text += c;
+                    datoteka.tekst += c;
                 }
                 
             }
-            textBox2.Text += Environment.NewLine;
-            
-            foreach (string item in files)
+
+            txtPrikaz.Text += Environment.NewLine;
+
+            try
             {
-                FileInfo f = new FileInfo(item);
-                textBox2.Text += "   " + f.Name + Environment.NewLine;
-                comboBox1.Items.Add(f.Name);
+                foreach (string item in datoteka.datoteke)
+                {
+                    FileInfo f = new FileInfo(item);
+                    txtPrikaz.Text += datoteka.razmak + f.Name + Environment.NewLine;
+                    cmbFiles.Items.Add(f.Name);
+                }
+            }
+            catch (Exception)
+            {
+                
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnSpremi_Click(object sender, EventArgs e)
         {
             if (!File.Exists(path2))
             {
                 File.Create(path2).Dispose();
                 TextWriter tw = new StreamWriter(path2, true);
-                tw.WriteLine(tekst + Environment.NewLine + odabir);
+                tw.WriteLine(datoteka.tekst + Environment.NewLine + datoteka.odabir);
                 tw.Close();
             }
             else
             {
-                //izmijena teksta
+                TextWriter tw = new StreamWriter(path2, false);
+                tw.WriteLine(datoteka.tekst + Environment.NewLine + datoteka.odabir);
+                tw.Close();
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnOdaberi_Click(object sender, EventArgs e)
         {
-            odabir += "   " + comboBox1.SelectedItem + Environment.NewLine;
+            
+            if (string.IsNullOrEmpty(cmbFiles.Text))
+            {
+                MessageBox.Show("Morate odabrati datoteku!");
+            }
+            else
+            {
+                datoteka.odabir += datoteka.razmak + "   " + cmbFiles.SelectedItem + Environment.NewLine;
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             if (File.Exists(path2))
             {
-                textBox2.Text = File.ReadAllText(path2);
+                txtPrikaz.Text = File.ReadAllText(path2);
             }
-            
         }
 
         public static string NabaviPunoImePutanje(string FileName)
         {
             string file = "";
 
-            
             FileInfo f = new FileInfo(FileName);
 
-            if (FileName.StartsWith(".\\"))  
-                file = Application.StartupPath
-                             + FileName.Substring(1); 
-            else if (!FileName.Contains("\\")) 
-                file = Application.StartupPath
-                             + "\\"
-                             + FileName;
+            if (FileName.StartsWith(".\\"))
+            {
+                file = Application.StartupPath + FileName.Substring(1);
+            } 
+            else if (!FileName.Contains("\\"))
+            {
+                file = Application.StartupPath + "\\" + FileName;
+            }
             else
-                file = f.FullName; 
-
+            {
+                file = f.FullName;
+            }
             return file;
         }
     }

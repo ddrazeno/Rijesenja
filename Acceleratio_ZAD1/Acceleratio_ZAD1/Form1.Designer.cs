@@ -1,6 +1,6 @@
 ﻿namespace Acceleratio_ZAD1
 {
-    partial class Form1
+    partial class Zadatak1
     {
         /// <summary>
         /// Required designer variable.
@@ -28,71 +28,94 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnOtvori = new System.Windows.Forms.Button();
+            this.txtPrikaz = new System.Windows.Forms.TextBox();
+            this.cmbFiles = new System.Windows.Forms.ComboBox();
+            this.btnSpremi = new System.Windows.Forms.Button();
+            this.btnOdaberi = new System.Windows.Forms.Button();
+            this.lblPrikazHijerarhije = new System.Windows.Forms.Label();
+            this.lblOdabirFavorita = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button1
+            // btnOtvori
             // 
-            this.button1.Location = new System.Drawing.Point(12, 208);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Otvori";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnOtvori.Location = new System.Drawing.Point(12, 226);
+            this.btnOtvori.Name = "btnOtvori";
+            this.btnOtvori.Size = new System.Drawing.Size(75, 23);
+            this.btnOtvori.TabIndex = 0;
+            this.btnOtvori.Text = "Otvori";
+            this.btnOtvori.UseVisualStyleBackColor = true;
+            this.btnOtvori.Click += new System.EventHandler(this.btnOtvori_Click);
             // 
-            // textBox2
+            // txtPrikaz
             // 
-            this.textBox2.Location = new System.Drawing.Point(12, 12);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(381, 180);
-            this.textBox2.TabIndex = 7;
+            this.txtPrikaz.Location = new System.Drawing.Point(12, 40);
+            this.txtPrikaz.Multiline = true;
+            this.txtPrikaz.Name = "txtPrikaz";
+            this.txtPrikaz.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtPrikaz.Size = new System.Drawing.Size(381, 180);
+            this.txtPrikaz.TabIndex = 7;
             // 
-            // comboBox1
+            // cmbFiles
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(399, 12);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 8;
+            this.cmbFiles.FormattingEnabled = true;
+            this.cmbFiles.Location = new System.Drawing.Point(399, 40);
+            this.cmbFiles.Name = "cmbFiles";
+            this.cmbFiles.Size = new System.Drawing.Size(121, 21);
+            this.cmbFiles.TabIndex = 8;
             // 
-            // button2
+            // btnSpremi
             // 
-            this.button2.Location = new System.Drawing.Point(174, 208);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Spremi";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnSpremi.Location = new System.Drawing.Point(93, 226);
+            this.btnSpremi.Name = "btnSpremi";
+            this.btnSpremi.Size = new System.Drawing.Size(75, 23);
+            this.btnSpremi.TabIndex = 9;
+            this.btnSpremi.Text = "Spremi";
+            this.btnSpremi.UseVisualStyleBackColor = true;
+            this.btnSpremi.Click += new System.EventHandler(this.btnSpremi_Click);
             // 
-            // button3
+            // btnOdaberi
             // 
-            this.button3.Location = new System.Drawing.Point(93, 208);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "Odaberi";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnOdaberi.Location = new System.Drawing.Point(174, 226);
+            this.btnOdaberi.Name = "btnOdaberi";
+            this.btnOdaberi.Size = new System.Drawing.Size(75, 23);
+            this.btnOdaberi.TabIndex = 10;
+            this.btnOdaberi.Text = "Odaberi";
+            this.btnOdaberi.UseVisualStyleBackColor = true;
+            this.btnOdaberi.Click += new System.EventHandler(this.btnOdaberi_Click);
             // 
-            // Form1
+            // lblPrikazHijerarhije
+            // 
+            this.lblPrikazHijerarhije.AutoSize = true;
+            this.lblPrikazHijerarhije.Location = new System.Drawing.Point(13, 21);
+            this.lblPrikazHijerarhije.Name = "lblPrikazHijerarhije";
+            this.lblPrikazHijerarhije.Size = new System.Drawing.Size(89, 13);
+            this.lblPrikazHijerarhije.TabIndex = 11;
+            this.lblPrikazHijerarhije.Text = "Prikaz hijerarhije: ";
+            // 
+            // lblOdabirFavorita
+            // 
+            this.lblOdabirFavorita.AutoSize = true;
+            this.lblOdabirFavorita.Location = new System.Drawing.Point(399, 20);
+            this.lblOdabirFavorita.Name = "lblOdabirFavorita";
+            this.lblOdabirFavorita.Size = new System.Drawing.Size(82, 13);
+            this.lblOdabirFavorita.TabIndex = 12;
+            this.lblOdabirFavorita.Text = "Odabir favorita: ";
+            // 
+            // Zadatak1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(530, 261);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.button1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Controls.Add(this.lblOdabirFavorita);
+            this.Controls.Add(this.lblPrikazHijerarhije);
+            this.Controls.Add(this.btnOdaberi);
+            this.Controls.Add(this.btnSpremi);
+            this.Controls.Add(this.cmbFiles);
+            this.Controls.Add(this.txtPrikaz);
+            this.Controls.Add(this.btnOtvori);
+            this.Name = "Zadatak1";
+            this.Text = "Zadatak 1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -101,11 +124,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnOtvori;
+        private System.Windows.Forms.TextBox txtPrikaz;
+        private System.Windows.Forms.ComboBox cmbFiles;
+        private System.Windows.Forms.Button btnSpremi;
+        private System.Windows.Forms.Button btnOdaberi;
+        private System.Windows.Forms.Label lblPrikazHijerarhije;
+        private System.Windows.Forms.Label lblOdabirFavorita;
     }
 }
 
