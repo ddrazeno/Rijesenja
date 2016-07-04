@@ -27,7 +27,7 @@ namespace Acceleratio_ZAD1
             txtPrikaz.Clear();
             cmbFiles.Items.Clear();
             datoteka.tekst = "";
-
+            datoteka.razmak = "   ";
             FolderBrowserDialog browser = new FolderBrowserDialog();
             DialogResult result = browser.ShowDialog();
             datoteka.putanja = browser.SelectedPath;
