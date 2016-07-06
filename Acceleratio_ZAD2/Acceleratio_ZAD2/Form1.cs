@@ -12,6 +12,7 @@ namespace Acceleratio_ZAD2
 {
     public partial class Form1 : Form
     {
+        //Popis p;
         string zad, zad2;
         List<Zadatak> zadToDo;
         List<Zadatak> zadInProg;
@@ -23,35 +24,39 @@ namespace Acceleratio_ZAD2
             zadToDo = new List<Zadatak>();
             zadInProg = new List<Zadatak>();
             zadDone = new List<Zadatak>();
-            
+            //p = new Popis();
         }
 
         private void btnSpremi_Click(object sender, EventArgs e)
         {
             z = new Zadatak();
-            z.zadatak = textBox1.Text;
+            z.zadatak = txtZadatak.Text;
             z.stanje = "To Do";
-            zadToDo.Add(z);
-            textBox1.Clear();
+            if (!String.IsNullOrWhiteSpace(z.zadatak))
+            {
+                zadToDo.Add(z);
+                //p.Dodaj(z);
+            }
+            txtZadatak.Clear();
             Osvjezi();         
         }
 
         private void btnOdaberi_Click(object sender, EventArgs e)
         {
-            if (listBox1.SelectedItem != null)
+            if (ltbToDo.SelectedItem != null)
             {
-                zad = listBox1.SelectedItem.ToString();
+                zad = ltbToDo.SelectedItem.ToString();
                 foreach (Zadatak z in zadToDo.ToList<Zadatak>())
                 {
-                    if (z.zadatak == zad)
+                    if (z.zadatak == zad && cmbKategorije.SelectedItem!=null)
                     {
-                        if (comboBox1.SelectedItem.ToString() == "In progress")
+                        if (cmbKategorije.SelectedItem.ToString() == "In progress")
                         {
                             z.stanje = "In progress";
                             zadInProg.Add(z);
                             zadToDo.Remove(z);
                         }
-                        else if (comboBox1.SelectedItem.ToString() == "Done")
+                        else if (cmbKategorije.SelectedItem.ToString() == "Done")
                         {
                             z.stanje = "Done";
                             zadDone.Add(z);
@@ -60,20 +65,23 @@ namespace Acceleratio_ZAD2
                     }
                 }
             }
-            if (listBox2.SelectedItem != null)
+            if (ltbInProg.SelectedItem != null)
             {
-                zad2 = listBox2.SelectedItem.ToString();
+                zad2 = ltbInProg.SelectedItem.ToString();
                 foreach (Zadatak z in zadInProg.ToList<Zadatak>())
                 {
-                    if (comboBox1.SelectedItem.ToString() == "Done")
+                    if (z.zadatak == zad2 && cmbKategorije.SelectedItem != null)
                     {
-                        z.stanje = "Done";
-                        zadDone.Add(z);
-                        zadInProg.Remove(z);
+                        if (cmbKategorije.SelectedItem.ToString() == "Done")
+                        {
+                            z.stanje = "Done";
+                            zadDone.Add(z);
+                            zadInProg.Remove(z);
+                        }
                     }
+                    
                 }
             }
-            
             Osvjezi();
         }
 
@@ -86,36 +94,36 @@ namespace Acceleratio_ZAD2
 
         public void DohvatiToDo()
         {
-            listBox1.Items.Clear();
+            ltbToDo.Items.Clear();
             foreach (Zadatak z in zadToDo)
             {
                 if (z.stanje == "To Do")
                 {
-                    listBox1.Items.Add(z.zadatak);
+                    ltbToDo.Items.Add(z.zadatak);
                 }
             }
         }
 
         public void DohvatiInProg()
         {
-            listBox2.Items.Clear();
+            ltbInProg.Items.Clear();
             foreach (Zadatak z in zadInProg)
             {
                 if (z.stanje == "In progress")
                 {
-                    listBox2.Items.Add(z.zadatak);
+                    ltbInProg.Items.Add(z.zadatak);
                 }
             }
         }
 
         public void DohvatiDone()
         {
-            listBox3.Items.Clear();
+            ltbDone.Items.Clear();
             foreach (Zadatak z in zadDone)
             {
                 if (z.stanje == "Done")
                 {
-                    listBox3.Items.Add(z.zadatak);
+                    ltbDone.Items.Add(z.zadatak);
                 }
             }
         }

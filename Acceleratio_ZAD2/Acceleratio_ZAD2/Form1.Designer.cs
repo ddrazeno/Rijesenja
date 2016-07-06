@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.btnSpremi = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.ltbToDo = new System.Windows.Forms.ListBox();
+            this.txtZadatak = new System.Windows.Forms.TextBox();
+            this.cmbKategorije = new System.Windows.Forms.ComboBox();
             this.btnOdaberi = new System.Windows.Forms.Button();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.listBox3 = new System.Windows.Forms.ListBox();
+            this.ltbInProg = new System.Windows.Forms.ListBox();
+            this.ltbDone = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -52,31 +52,31 @@
             this.btnSpremi.UseVisualStyleBackColor = true;
             this.btnSpremi.Click += new System.EventHandler(this.btnSpremi_Click);
             // 
-            // listBox1
+            // ltbToDo
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(294, 34);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 95);
-            this.listBox1.TabIndex = 1;
+            this.ltbToDo.FormattingEnabled = true;
+            this.ltbToDo.Location = new System.Drawing.Point(294, 34);
+            this.ltbToDo.Name = "ltbToDo";
+            this.ltbToDo.Size = new System.Drawing.Size(120, 95);
+            this.ltbToDo.TabIndex = 1;
             // 
-            // textBox1
+            // txtZadatak
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 34);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 2;
+            this.txtZadatak.Location = new System.Drawing.Point(12, 34);
+            this.txtZadatak.Name = "txtZadatak";
+            this.txtZadatak.Size = new System.Drawing.Size(100, 20);
+            this.txtZadatak.TabIndex = 2;
             // 
-            // comboBox1
+            // cmbKategorije
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cmbKategorije.FormattingEnabled = true;
+            this.cmbKategorije.Items.AddRange(new object[] {
             "In progress",
             "Done"});
-            this.comboBox1.Location = new System.Drawing.Point(138, 33);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 3;
+            this.cmbKategorije.Location = new System.Drawing.Point(138, 33);
+            this.cmbKategorije.Name = "cmbKategorije";
+            this.cmbKategorije.Size = new System.Drawing.Size(121, 21);
+            this.cmbKategorije.TabIndex = 3;
             // 
             // btnOdaberi
             // 
@@ -88,21 +88,21 @@
             this.btnOdaberi.UseVisualStyleBackColor = true;
             this.btnOdaberi.Click += new System.EventHandler(this.btnOdaberi_Click);
             // 
-            // listBox2
+            // ltbInProg
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(420, 34);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(120, 95);
-            this.listBox2.TabIndex = 5;
+            this.ltbInProg.FormattingEnabled = true;
+            this.ltbInProg.Location = new System.Drawing.Point(420, 34);
+            this.ltbInProg.Name = "ltbInProg";
+            this.ltbInProg.Size = new System.Drawing.Size(120, 95);
+            this.ltbInProg.TabIndex = 5;
             // 
-            // listBox3
+            // ltbDone
             // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.Location = new System.Drawing.Point(546, 33);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(120, 95);
-            this.listBox3.TabIndex = 7;
+            this.ltbDone.FormattingEnabled = true;
+            this.ltbDone.Location = new System.Drawing.Point(546, 33);
+            this.ltbDone.Name = "ltbDone";
+            this.ltbDone.Size = new System.Drawing.Size(120, 95);
+            this.ltbDone.TabIndex = 7;
             // 
             // label1
             // 
@@ -159,12 +159,12 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listBox3);
-            this.Controls.Add(this.listBox2);
+            this.Controls.Add(this.ltbDone);
+            this.Controls.Add(this.ltbInProg);
             this.Controls.Add(this.btnOdaberi);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.cmbKategorije);
+            this.Controls.Add(this.txtZadatak);
+            this.Controls.Add(this.ltbToDo);
             this.Controls.Add(this.btnSpremi);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -176,12 +176,12 @@
         #endregion
 
         private System.Windows.Forms.Button btnSpremi;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ListBox ltbToDo;
+        private System.Windows.Forms.TextBox txtZadatak;
+        private System.Windows.Forms.ComboBox cmbKategorije;
         private System.Windows.Forms.Button btnOdaberi;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.ListBox listBox3;
+        private System.Windows.Forms.ListBox ltbInProg;
+        private System.Windows.Forms.ListBox ltbDone;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

@@ -10,9 +10,5 @@ namespace Acceleratio_ZAD2
     {
         public string zadatak { get; set; }
         public string stanje { get; set; }
-        public Zadatak()
-        {
-                
-        }
     }
 }
