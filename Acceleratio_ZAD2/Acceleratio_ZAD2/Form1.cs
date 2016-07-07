@@ -12,7 +12,6 @@ namespace Acceleratio_ZAD2
 {
     public partial class Form1 : Form
     {
-        //Popis p;
         string zad, zad2;
         List<Zadatak> zadToDo;
         List<Zadatak> zadInProg;
@@ -24,7 +23,6 @@ namespace Acceleratio_ZAD2
             zadToDo = new List<Zadatak>();
             zadInProg = new List<Zadatak>();
             zadDone = new List<Zadatak>();
-            //p = new Popis();
         }
 
         private void btnSpremi_Click(object sender, EventArgs e)
@@ -35,7 +33,6 @@ namespace Acceleratio_ZAD2
             if (!String.IsNullOrWhiteSpace(z.zadatak))
             {
                 zadToDo.Add(z);
-                //p.Dodaj(z);
             }
             txtZadatak.Clear();
             Osvjezi();         
